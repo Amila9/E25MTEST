@@ -11,6 +11,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, LocationsChan
     var isMapLoaded         : Bool = false
     var locationList : [Location] = []
     
+    //Im just trying to figureout is this working
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
