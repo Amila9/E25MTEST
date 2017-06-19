@@ -14,7 +14,6 @@ protocol LocationsChangedDelegate : class {
     func userChangedLocation (locations : [Location])
 }
 
-
 class DetailViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     weak var delegate: LocationsChangedDelegate? = nil
@@ -25,8 +24,8 @@ class DetailViewController: UIViewController , UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.table.delegate = self
-        self.table.dataSource = self
+        self.table.delegate     = self
+        self.table.dataSource   = self
         
         let fetchRequest : NSFetchRequest<Location>  = Location.fetchRequest()
         do {
@@ -56,7 +55,6 @@ class DetailViewController: UIViewController , UITableViewDataSource, UITableVie
                 }
             }
         }
-        
         let tmpLocation = CLLocation(latitude: Double(location.lat!)!, longitude: Double(location.long!)!)
         let kms:CLLocationDistance = myLocation.distance(from: tmpLocation)/1000
         cell.distance.text =  String(format: "%.1f", kms) + " km"
@@ -73,9 +71,8 @@ class DetailViewController: UIViewController , UITableViewDataSource, UITableVie
             print("Deleted")
             
             DatabaseController.getContext().delete(locations[indexPath.row])
-            
             self.locations.remove(at: indexPath.row)
-            self.table.deleteRows(at: [indexPath], with: .automatic)            
+            self.table.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     

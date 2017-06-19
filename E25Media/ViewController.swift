@@ -10,10 +10,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, LocationsChan
     var myLocation          : CLLocation!
     var isMapLoaded         : Bool = false
     var locationList : [Location] = []
-    //    annotation delegate
-    //    var title: String?
-    //    var subtitle: String?
-    //    var coordinate: CLLocationCoordinate2D
     
     override func viewDidLoad() {
         super.viewDidLoad()
